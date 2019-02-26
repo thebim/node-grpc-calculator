@@ -1,0 +1,27 @@
+// Protocol buffer version.
+syntax = "proto3";
+
+// The name of the protocol package.
+package calculator;
+
+// Define the service.
+service Calculator {
+    rpc Add (AlgebraProblem) returns (AlgebraResult) {}
+    rpc Subtract (AlgebraProblem) returns (AlgebraResult) {}
+    rpc Multiply (AlgebraProblem) returns (AlgebraResult) {}
+    rpc Divide (AlgebraProblem) returns (Quotient) {}
+}
+
+message AlgebraProblem {
+    int32 operand1 = 1;
+    int32 operand2 = 2;
+}
+
+message AlgebraResult {
+    int32 result = 1;
+}
+
+message Quotient {
+    int32 integer = 1;
+    int32 remainder = 2;
+}
